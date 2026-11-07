@@ -1,0 +1,10 @@
+Web Content Fetcher
+Copyright 2026 lightcoloror
+
+Licensed under the Apache License, Version 2.0.
+
+This repository contains independently written orchestration and adapter code.
+It does not vendor the third-party projects it can invoke. Runtime dependencies,
+optional backends, external services, source-review revisions, and their
+licenses are documented in THIRD_PARTY_NOTICES.md and
+docs/dependency-provenance.md.

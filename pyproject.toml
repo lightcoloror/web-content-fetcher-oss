@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "web-content-fetcher"
+version = "0.1.0"
+description = "Reusable compliant web content fetching, extraction, and evidence archiving layer."
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.10"
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = [
+    "trafilatura>=2.0.0",
+    "readability-lxml>=0.8.1",
+    "markdown-it-py>=3.0.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.2,<10", "Pillow>=10"]
+browser = ["playwright>=1.52"]
+crawl4ai = ["crawl4ai>=0.8.0"]
+attachments = ["markitdown>=0.1.0"]
+scrapling = ["scrapling>=0.4.9"]
+crawlee = ["crawlee[playwright]>=1.8.0"]
+all = [
+    "playwright>=1.52",
+    "crawl4ai>=0.8.0",
+    "markitdown>=0.1.0",
+    "scrapling>=0.4.9",
+    "crawlee[playwright]>=1.8.0",
+]
+
+[project.scripts]
+wcf = "web_content_fetcher.cli:main"
+wcf-ui = "web_content_fetcher.ui:main"
+wcf-mcp = "web_content_fetcher.mcp_server:main"
+
+[tool.setuptools]
+packages = ["web_content_fetcher"]
+
+[tool.setuptools.package-data]
+web_content_fetcher = ["default_config.json"]

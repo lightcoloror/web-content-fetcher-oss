@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "web_ui": {
+    "host": "127.0.0.1",
+    "port": 8797
+  },
+  "web_access": {
+    "base_url": "http://127.0.0.1:8787"
+  },
+  "wechat_download_api": {
+    "base_url": "http://127.0.0.1:5000"
+  }
+}
