@@ -37,3 +37,26 @@ synthetic modules and do not start the real UI.
 ## Discovery metadata
 
 The [tool manifest](agent-tool-manifest.v1.json) describes existing entry points without granting execution authority. See [scope and metadata-only tests](docs/agent-tool-manifest.md). Platform labels and pinned public contract references do not prove live readiness or runtime interoperability.
+
+## Real-page smoke helper
+
+`scripts/check_real_pages.py` is an operator-run source-checkout helper for the
+existing `fetch` CLI. It is not an installed-wheel entry point and not
+automated test infrastructure. An operator supplies an explicit `--config`
+file with `http(s)` cases such as `https://example.invalid/page`; there is no
+built-in default corpus. The helper validates the whole config before running
+any case, records a JSON report plus a Markdown summary, and exits `0`, `1` or
+`2` for pass, contract failure, or invalid input.
+
+The report is diagnostic and operator-local: it may contain the checked URLs,
+the child command line, stderr excerpts and archive paths. It is not published
+automatically and is not claimed to be scrubbed; ship no real reports or
+configs. Running the helper is an operator action and implies no network
+permission. See [docs/real-page-smoke.md](docs/real-page-smoke.md) for the
+config shape, exit codes and report-sensitivity notes, and
+[REAL_PAGE_SMOKE_PROVENANCE.json](REAL_PAGE_SMOKE_PROVENANCE.json) for the
+attribution record.
+
+`tests/test_real_pages_synthetic.py` describes the helper contract with
+in-memory fakes only: no temporary files, child process, socket or HTTP. It is
+a source-level check, not a live-page acceptance run.

@@ -1,0 +1,112 @@
+{
+  "schema": "real-page-smoke-provenance/v1",
+  "generated_by": "DeepSeek Harness",
+  "source": {
+    "project": "web-content-fetcher",
+    "repository_kind": "fixed_git_blob",
+    "commit": "323203398310ac85b2df73536a57285f64723466",
+    "baseline_parent": "d1c9811cfb76d2d4f6384037d37acad890c51b24",
+    "blob": "87195e212f3a1174172b6909ffcad063fd168ea7",
+    "path": "scripts/check_real_pages.py",
+    "sha256": "6076f9501d1ff0647db6e212e61aa49494aad6057a93295964dcd4347266600f",
+    "bytes": 8320,
+    "license": "Apache-2.0",
+    "copyright": "Copyright 2026 lightcoloror",
+    "real_config_or_urls_read": false
+  },
+  "candidate": [
+    {
+      "path": "scripts/check_real_pages.py",
+      "role": "adapted operator-run real-page smoke helper",
+      "origin": "adapted-from-first-party-source"
+    },
+    {
+      "path": "tests/test_real_pages_synthetic.py",
+      "role": "stdlib-only in-memory synthetic contract tests",
+      "origin": "new-first-party"
+    },
+    {
+      "path": "docs/real-page-smoke.md",
+      "role": "operator documentation for the helper and its report sensitivity",
+      "origin": "new-first-party"
+    },
+    {
+      "path": "REAL_PAGE_SMOKE_PROVENANCE.json",
+      "role": "adaptation and attribution record",
+      "origin": "new-first-party"
+    },
+    {
+      "path": "README.md",
+      "role": "append-only documentation update on the exact baseline README bytes",
+      "origin": "append-only-to-baseline"
+    }
+  ],
+  "adaptation": {
+    "preserved_public_functions": [
+      "run_case",
+      "evaluate_case",
+      "render_markdown",
+      "main"
+    ],
+    "preserved_contracts": [
+      "required/optional cases",
+      "strict exit behaviour",
+      "returncode 0 or 2 accepted",
+      "status and allow_status_fail",
+      "min_extracted_chars and min_selector_results thresholds",
+      "selector forwarding",
+      "fetch profile forwarding",
+      "operator-local report paths"
+    ],
+    "changed_behaviour": [
+      "explicit required --config instead of a repository default corpus",
+      "whole-config validation before any child process or report write",
+      "malformed and host-less URLs (including malformed IPv6) rejected as invalid config",
+      "portable archive id validation (slash, backslash, colon, < > double quote, pipe, question mark, star, controls, dot segments, whitespace edges, trailing dot, Windows reserved basenames) and NFC plus case-fold collision detection",
+      "child timeout becomes a bounded case failure",
+      "strict UTF-8 child output decoding; invalid UTF-8 bytes become a bounded case failure",
+      "non-timeout subprocess/OS/permission failures propagate and stop the run",
+      "response JSON shape is checked before evaluation, including a string extracted_text when present",
+      "Markdown table cells escape pipes and newlines"
+    ],
+    "not_changed": [
+      "no new fetcher, router, database or fetch engine",
+      "no dependency, version, schema, default-fetcher or global-route change",
+      "no automatic publishing or universal redaction claim for operator reports"
+    ]
+  },
+  "verification": {
+    "candidate_stage": "static AST/compile/hash checks only; owner-reviewed R1 corrections re-frozen",
+    "candidate_imported": false,
+    "synthetic_tests_executed": false,
+    "real_network_acceptance": false,
+    "notes": "Tests are authored to run only after explicit owner admission; nothing here claims live-page, installed-wheel or runtime parity.",
+    "scope": "Candidate-stage snapshot before later admitted synthetic execution; original false fields describe only that stage."
+  },
+  "unknowns": [
+    "Actual public page contents, transports and rate limits were not supplied or observed.",
+    "Installed-wheel and live-service behaviour were not exercised at this stage.",
+    "Operator reports contain URLs, command lines and stderr by design and are not scrubbed."
+  ],
+  "release_verification": {
+    "actor": "Codex; exact runtime model not independently verified",
+    "verified_at": "2026-11-08T17:14:12.296764+00:00",
+    "synthetic_positive_cases": 76,
+    "independent_seeded_package_coexistence_cases": 76,
+    "distinct_test_methods": 76,
+    "zero_skips_errors_or_failures_in_positive_runs": true,
+    "same_suite_minchars_mutant": {
+      "tests_run_before_failfast": 24,
+      "expected_failures": 1,
+      "rejected": true,
+      "exact_change": "remove only the two minimum-extracted-characters rejection lines"
+    },
+    "ordinary_test_assertion_repair": "Exact complete expected-profile failure message; source unchanged. Original failing attempt retained privately.",
+    "source_sha256": "d0be554bd6d1d02a53d9ceacf41833cbc5dde085dc9136a7c10504bb0f13a84b",
+    "test_sha256": "a5a59e5851c91b607bf0eea473f5f678128f1f51b4d292b99ddf0326c75370ee",
+    "source_checkout_only": true,
+    "real_network_or_child_CLI_executed": false,
+    "installed_wheel_or_cross_platform_verified": false,
+    "not_a_process_compliance_or_rights_certificate": true
+  }
+}
