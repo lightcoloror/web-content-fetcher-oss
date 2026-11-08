@@ -33,3 +33,7 @@ The Windows source-checkout cmd launcher also forwards UI arguments, restores
 the caller directory/environment and preserves the native Python exit code.
 See [Windows launcher contracts](docs/windows-ui-launcher.md); checks use
 synthetic modules and do not start the real UI.
+
+## Discovery metadata
+
+The [tool manifest](agent-tool-manifest.v1.json) describes existing entry points without granting execution authority. See [scope and metadata-only tests](docs/agent-tool-manifest.md). Platform labels and pinned public contract references do not prove live readiness or runtime interoperability.

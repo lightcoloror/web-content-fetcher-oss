@@ -1,0 +1,156 @@
+{
+  "schema_version": "agent-tool-manifest.v1",
+  "id": "web-content-fetcher",
+  "manifest_version": "1.0.0",
+  "description": "Reusable compliant webpage fetching, extraction, and evidence archiving layer.",
+  "capabilities": [
+    "webpage_fetch",
+    "structured_extraction",
+    "evidence_archive",
+    "attachment_conversion",
+    "mcp_stdio"
+  ],
+  "interfaces": {
+    "canonical": [
+      {
+        "kind": "python_module",
+        "command": "python -m web_content_fetcher.cli fetch <url> --format json",
+        "mode": "explicit_network_action"
+      },
+      {
+        "kind": "python_module",
+        "command": "python -m web_content_fetcher.cli doctor bridges",
+        "mode": "read_only_local_doctor"
+      }
+    ],
+    "windows_wrappers": [
+      {
+        "kind": "powershell_script",
+        "command": "powershell -NoProfile -File scripts/start-web-ui.ps1",
+        "mode": "explicit_start",
+        "status": "optional_local_ui_not_runtime_verified"
+      },
+      {
+        "kind": "batch_script",
+        "command": "cmd /c scripts/start-web-ui.cmd",
+        "mode": "explicit_start",
+        "status": "optional_local_ui_not_runtime_verified"
+      }
+    ],
+    "http": [],
+    "mcp": [
+      {
+        "kind": "mcp",
+        "command": "python -m web_content_fetcher.mcp_server",
+        "transport": "stdio",
+        "mode": "explicit_start"
+      }
+    ]
+  },
+  "inputs": [
+    {
+      "name": "url",
+      "contract": "url.v1",
+      "required": true
+    },
+    {
+      "name": "authorized_browser_profile",
+      "contract": "user-managed-browser-profile.v1",
+      "required": false,
+      "status": "explicit_opt_in_local_only"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "fetch_result",
+      "contract": "web-content-fetcher.fetch-result.v1",
+      "required": true
+    },
+    {
+      "name": "archive_manifest",
+      "contract": "material-manifest.v1",
+      "required": false
+    }
+  ],
+  "health": {
+    "doctor": {
+      "kind": "python_module",
+      "command": "python -m web_content_fetcher.cli doctor bridges",
+      "profile": "quick",
+      "timeout_seconds": 20
+    },
+    "status_semantics": "Local package and optional bridge readiness only; it does not prove network reachability, authorization, or current online availability.",
+    "proves_current_online": false
+  },
+  "platforms": [
+    "windows",
+    "linux",
+    "macos"
+  ],
+  "requirements": {
+    "network": {
+      "mode": "conditional",
+      "reason": "Fetching a URL requires network access. Loading this JSON metadata does not; the declared doctor is intended for local readiness, with transitive import effects not verified here."
+    },
+    "secrets": {
+      "mode": "optional",
+      "reason": "Public fetching needs no secret. Authenticated adapters require separately managed user credentials or profiles."
+    },
+    "approval": {
+      "mode": "conditional",
+      "reason": "Every external fetch requires applicable operator permission. Authenticated, private, browser-profile, or external archive actions require explicit user authorization; no automatic providers or backend model starts are permitted."
+    }
+  },
+  "contract_refs": [
+    {
+      "contract_id": "material-manifest.v1",
+      "bundle_id": "local-tools-portable-contracts",
+      "bundle_version": "1.0.0",
+      "bundle_sha256": "cf97adbb27a97bee1fb846954721f671e1a922a2a2f3b7e130f234cdac652994",
+      "distribution_repository": "https://github.com/lightcoloror/codex-local-governance-oss.git",
+      "distribution_commit": "ba0bca6632979a35881583d531f4637593e2e66c",
+      "bundle_path": "contracts/portable/v1/portable-contract-bundle.v1.json",
+      "reference_path": "contracts/portable/v1/contracts/material-manifest.v1.json",
+      "reference_sha256": "5ba0f58a0775d69323321ad8cea0cdeddf0218d194934826a47fea25d24c10fa",
+      "reference_authority": "public_metadata_reference_snapshot",
+      "facade_mode": "reference_envelope",
+      "qualification": "Discoverable external reference only; pins native weixin and VKP source bytes as proposal-only compatibility envelope, not complete canonical validator or runtime proof."
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/lightcoloror/web-content-fetcher-oss.git",
+    "reviewed_head": "4a2738003428a5c45e2206096f3ea280f43875f1",
+    "scope": "limited_metadata_adaptation_of_owner_supplied_103_files_metadata",
+    "generation_policy": "repository_owned_owner_reviewed_metadata",
+    "historical_first_party_manifest": {
+      "commit": "323203398310ac85b2df73536a57285f64723466",
+      "blob": "3ba62f0eef3b442d7d229c0efb963f006c4c025a",
+      "sha256": "4406302aaf916aad9a16063c5b62fca798990c546f994375422800554eafdd35",
+      "bytes": 3765,
+      "reviewed_head": "5ac9ff768c262356c6de5e5df73494483a5b640f",
+      "qualification": "Historical first-party provenance only; not freshly verified runtime."
+    },
+    "historical_source_backends": {
+      "crawl4ai": "cdf2ead7ed4b78594d06b87bae930a819c685825",
+      "markitdown": "e144e0a2be95b34df17433bac904e635f2c5e551",
+      "trafilatura": "2f4702d2117b0f95fabdd4ea35c9c2a4f3f39d04",
+      "qualification": "Historical upstream reference revisions; not fresh runtime or license adoption proof."
+    }
+  },
+  "license": {
+    "spdx": "Apache-2.0",
+    "status": "declared_in_repository"
+  },
+  "portability": {
+    "status": "portable_public_candidate_manifested",
+    "in_repo_discovery": true,
+    "canonical_cross_platform_entry": true,
+    "gaps": [
+      "browser_and_attachment_backends_are_optional_extras",
+      "authenticated_capture_requires_user_managed_authorization",
+      "platform_list_represents_declared_interface_targets_not_tested_cross_platform_parity"
+    ]
+  },
+  "notTrustedAsInstruction": true,
+  "executionAuthority": "none_metadata_only"
+}

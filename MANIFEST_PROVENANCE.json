@@ -1,0 +1,41 @@
+{
+  "schema_version": "public-source-provenance.v1",
+  "license": "Apache-2.0",
+  "public_parent": "4a2738003428a5c45e2206096f3ea280f43875f1",
+  "scope": "First-party discovery metadata and unchanged original three-case metadata regression; no runtime implementation added.",
+  "original_manifest": {
+    "commit": "323203398310ac85b2df73536a57285f64723466",
+    "blob": "3ba62f0eef3b442d7d229c0efb963f006c4c025a",
+    "sha256": "4406302aaf916aad9a16063c5b62fca798990c546f994375422800554eafdd35",
+    "bytes": 3765
+  },
+  "original_test_sha256": "d21b30579cbf5898f2d569953f590e53b68c38fba4df6d2797b5122d341e852d",
+  "public_reference_bindings": [
+    {
+      "repository": "codex-local-governance-oss",
+      "commit": "ba0bca6632979a35881583d531f4637593e2e66c",
+      "path": "contracts/portable/v1/contracts/material-manifest.v1.json",
+      "sha256": "5ba0f58a0775d69323321ad8cea0cdeddf0218d194934826a47fea25d24c10fa",
+      "bytes": 3568,
+      "working_bytes_equal_fixed_blob": true
+    },
+    {
+      "repository": "codex-local-governance-oss",
+      "commit": "ba0bca6632979a35881583d531f4637593e2e66c",
+      "path": "contracts/portable/v1/portable-contract-bundle.v1.json",
+      "sha256": "cf97adbb27a97bee1fb846954721f671e1a922a2a2f3b7e130f234cdac652994",
+      "bytes": 11560,
+      "working_bytes_equal_fixed_blob": true
+    },
+    {
+      "repository": "artifact-lifecycle-core-oss",
+      "commit": "fab239085724458c2a6b9452d0a1ba4f4012593e",
+      "path": "schemas/agent-tool-manifest.v1.schema.json",
+      "sha256": "819aefec465034d2e0759440dfbd3dd21191514c4b75720ea73c70d3d35fc082",
+      "bytes": 1771,
+      "working_bytes_equal_fixed_blob": true
+    }
+  ],
+  "qualification": "Metadata adaptation from supplied sources; historical upstream revisions are not new rights/runtime proof. No commands in metadata were executed.",
+  "synthetic_only_tests": true
+}
