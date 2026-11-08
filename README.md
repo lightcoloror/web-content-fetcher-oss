@@ -60,3 +60,18 @@ attribution record.
 `tests/test_real_pages_synthetic.py` describes the helper contract with
 in-memory fakes only: no temporary files, child process, socket or HTTP. It is
 a source-level check, not a live-page acceptance run.
+
+## Optional lifecycle synthetic check
+
+The optional lifecycle check against a separately supplied public Artifact Core
+is explicit: it is not part of the default `python -m pip install ".[test]"` +
+`python -m pytest -q` offline run above. It requires both environment roots and
+adds no pytest configuration, pytest plugin or package dependency:
+
+```sh
+export WCF_ARTIFACT_LIFECYCLE_CORE_TEST_ROOT=<path-to-public-artifact-lifecycle-core>
+export WCF_TEST_TMPDIR=<existing-disposable-test-root>
+python -m unittest discover -s checks -p lifecycle_synthetic.py -v
+```
+
+See [docs/lifecycle-synthetic-tests.md](docs/lifecycle-synthetic-tests.md).

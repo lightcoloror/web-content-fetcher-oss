@@ -1,0 +1,283 @@
+{
+  "schema_version": "wcf-lifecycle-tests-provenance.v2",
+  "status": "synthetic_execution_complete",
+  "generated_at": "2026-11-09T03:58:00+08:00",
+  "generated_by": "DeepSeek Harness agent (runtime model: deepseek-flash; exact model identity not independently verified)",
+  "review_and_publication": "owned by Codex",
+  "public_scope": {
+    "exactly_four_text_files": true,
+    "files": [
+      {
+        "path": "checks/lifecycle_synthetic.py",
+        "role": "adapted ten-case lifecycle check (same R2 suite bytes)",
+        "sha256": "312a979679460c6c7beb2fc0003f78823c3c250cb3c2dfd617c3a0711606b4b1",
+        "bytes": 25191,
+        "lines": 549
+      },
+      {
+        "path": "docs/lifecycle-synthetic-tests.md",
+        "role": "public usage, synthetic boundaries, test inventory and limitations",
+        "sha256": "4f3a0aeda72136c0b4a1fa5db3334e59ef3abd7ed9b24029c442f1f47fcb5510",
+        "bytes": 15860,
+        "lines": 252
+      },
+      {
+        "path": "LIFECYCLE_TESTS_PROVENANCE.json",
+        "role": "this public provenance record",
+        "sha256": null,
+        "bytes": null,
+        "self_hash_note": "the file's own hash is not embedded to avoid self-reference"
+      },
+      {
+        "path": "README.md",
+        "role": "baseline README bytes (exact prefix) plus a small optional-check link/invocation appendix",
+        "sha256": "0f915e598874781c971bd8f0c55ed8fcb585b7b04732d920c504e829085b79ed",
+        "bytes": 4346,
+        "baseline_prefix": {
+          "bytes": 3705,
+          "sha256": "ed264e0750f778268f8eff8af4f72eab26b4772bb8753f2eec4d35abbe5bb448",
+          "preserved_exactly": true
+        },
+        "appended_bytes": 641
+      }
+    ]
+  },
+  "placement_rationale": {
+    "why_checks_not_tests": "the baseline README promises python -m pytest -q with only .[test], while the public Artifact Core is an optional external dependency; a required-Core module under the default test tree would break that promise",
+    "default_collection": "checks/lifecycle_synthetic.py does not match pytest default file patterns test_*.py or *_test.py; the earlier candidate test module was removed from the dependency tree so default collection gains no module",
+    "explicit_invocation": "python -m unittest discover -s checks -p lifecycle_synthetic.py -v",
+    "global_pytest_config_or_dependency_changes": false
+  },
+  "public_sources": {
+    "web-content-fetcher": {
+      "role": "public WCF adapter and CLI under test",
+      "parent_commit": "95b6df66b55726503675b779ab4d8a93cf043902",
+      "license": "Apache-2.0",
+      "file_count": 111,
+      "bytes": 1354338,
+      "file_set_sha256": "71a64929810b37111daa3ab2f489f1439c5d416528c9aa267d3e5e886b31912f",
+      "key_blobs": {
+        "web_content_fetcher/artifact_lifecycle.py": {
+          "git_blob": "ea292c81f1d0939d593e938e0431310e74f1d5cd",
+          "sha256": "8228ab6b9321580a892928b410f252d816dc9680509f5e16d848b32e4ccc5a81"
+        },
+        "web_content_fetcher/cli.py": {
+          "git_blob": "5c87e63e4036a2bbfb94ebff4b7ab66f2939d623",
+          "sha256": "092eba72cfba9c4348ab02e0f93565f3403ea0d503de97e6da1bf282f5ddcd67"
+        }
+      }
+    },
+    "artifact-lifecycle-core": {
+      "role": "public Artifact Core contract/state machine",
+      "parent_commit": "fab239085724458c2a6b9452d0a1ba4f4012593e",
+      "license": "Apache-2.0",
+      "file_count": 36,
+      "bytes": 352756,
+      "file_set_sha256": "bbd7983e1a49dcaf0911495ce3a481bd2d44be41d1a36834736576be18cc8b56",
+      "key_blobs": {
+        "artifact_lifecycle_core.py": {
+          "git_blob": "16381abf9e3480eee78dc89d117d001636f39b4a",
+          "sha256": "e0b6ad47beef86a1245389049f6264831e07a42b9cc656fd8264879a7377b297"
+        },
+        "profiles/artifact-lifecycle-profiles.v1.json": {
+          "git_blob": "61f7659c44704b7c1586c6ce050b8b8a7c33c50c",
+          "sha256": "a3067ad998929a2287b48dc9debe7bb4791d394d73535dcdac09915bf92da44b"
+        }
+      }
+    }
+  },
+  "original_source": {
+    "git_commit": "323203398310ac85b2df73536a57285f64723466",
+    "git_blob": "a70bdae5d601993c42664d0805db3879a9a2d457",
+    "sha256": "b9343b27c13c596f39c8fbfe013608c5631e297fd767b893fc54e14d5235d4bb",
+    "bytes": 17922,
+    "test_method_count": 10,
+    "case_map": [
+      {"case": 1, "original_method": "test_successful_referenced_archive_is_protected_and_only_known_ephemera_become_candidates", "check_method": "test_successful_referenced_archive_is_protected_and_only_known_ephemera_become_candidates"},
+      {"case": 2, "original_method": "test_plan_fails_closed_for_active_owner_dispatch_dirty_git_and_hardlink_drift", "check_method": "test_plan_fails_closed_for_active_owner_dispatch_dirty_git_and_hardlink_drift"},
+      {"case": 3, "original_method": "test_verify_detects_candidate_drift_and_cross_volume_is_blocked", "check_method": "test_verify_detects_candidate_drift_and_cross_volume_is_blocked"},
+      {"case": 4, "original_method": "test_reparse_low_disk_and_unknown_paths_fail_closed_or_protect", "check_method": "test_reparse_low_disk_and_unknown_paths_fail_closed_or_protect"},
+      {"case": 5, "original_method": "test_large_capture_disk_gate_blocks_before_browser_or_image_work", "check_method": "test_large_capture_disk_gate_blocks_before_browser_or_image_work"},
+      {"case": 6, "original_method": "test_small_known_capture_warns_but_runs_with_two_gib_free", "check_method": "test_small_known_capture_warns_but_runs_with_two_gib_free"},
+      {"case": 7, "original_method": "test_capture_policy_matches_shared_profile", "check_method": "test_capture_policy_matches_shared_profile"},
+      {"case": 8, "original_method": "test_batch_capture_requires_estimate_and_blocks_when_it_will_not_fit", "check_method": "test_batch_capture_requires_estimate_and_blocks_when_it_will_not_fit"},
+      {"case": 9, "original_method": "test_synthetic_restore_requires_marker_and_production_cli_has_no_quarantine_or_purge", "check_method": "test_synthetic_restore_requires_marker_and_production_cli_has_no_quarantine_or_purge"},
+      {"case": 10, "original_method": "test_cli_scan_returns_machine_readable_manifest", "check_method": "test_cli_scan_returns_machine_readable_manifest"}
+    ]
+  },
+  "portability_adaptation": {
+    "summary": "Replace private workstation roots and system-temp fallback with an explicit public Core root and an operator-owned test root; fail clearly when configuration is absent; make disk and Git state explicit synthetic mocks; keep all original cases and assertions; retain the R2 restore-rejection and CLI-manifest strengthening.",
+    "root_contract": {
+      "WCF_ARTIFACT_LIFECYCLE_CORE_TEST_ROOT": "absolute public artifact-lifecycle-core root; must contain artifact_lifecycle_core.py and profiles/artifact-lifecycle-profiles.v1.json",
+      "WCF_TEST_TMPDIR": "absolute existing operator-owned temporary root; only artifact-lifecycle-<uuid> is created and removed beneath it",
+      "private_default_root": false,
+      "system_temp_fallback": false,
+      "missing_config_mode": "setUpClass raises RuntimeError; tests report errors, not passes or skips"
+    },
+    "cleanup": {
+      "addCleanup_registered_immediately_after_fixture_and_each_patch": true,
+      "verified_owned_child_before_delete": true,
+      "ignore_errors_removed": true,
+      "cleanup_denial_behavior": "surfaces as a test error and stops; no retry, ACL change or alternate path"
+    },
+    "synthetic_git": {
+      "representation": "core.git_status mocked to clean by default; dirty subcase overrides it",
+      "real_git_integration": false,
+      "git_subprocess_launched": false
+    },
+    "false_green_gaps_closed_in_r2": [
+      "execute=False, missing marker and invalid marker restore rejections assert no restore action/file mutation",
+      "positive marked quarantine/restore round-trip retained",
+      "CLI scan manifest is re-read and cache/item.bin is asserted indexed as cache_build_test_temp"
+    ],
+    "disk_policy_qualification": "required free space is the absolute minimum reserve plus rounded estimated output headroom (minimum_free_bytes + round-up(estimated_output_bytes * 1.25)); it is not a volume ratio"
+  },
+  "static_checks": {
+    "executed": true,
+    "runtime_tests": 0,
+    "project_modules_imported": false,
+    "project_modules_executed": false,
+    "interpreter": "fixed interpreter supplied as a task fact (Python 3.13.5); no interpreter search",
+    "method": "in-memory compile(), ast.parse and SHA-256 reads only",
+    "compile_only_targets": [
+      "adapted check",
+      "original suite",
+      "public WCF artifact_lifecycle.py",
+      "public WCF cli.py",
+      "public Core artifact_lifecycle_core.py"
+    ],
+    "ast_checks": {
+      "method_count": 10,
+      "method_names_match_original_order": true,
+      "assert_call_sites_original": 50,
+      "assert_call_sites_adapted": 60,
+      "added_assert_call_sites": 10,
+      "original_assertion_call_sites_preserved": true,
+      "skip_markers": [],
+      "private_root_tokens": 0,
+      "addCleanup_registrations": 3,
+      "ignore_errors_true_absent": true,
+      "restore_rejection_cases_present": true,
+      "cli_manifest_indexing_present": true
+    },
+    "hash_checks": {
+      "public_dependency_files_total": 147,
+      "public_dependency_bytes_total": 1707094,
+      "baseline_files_edited": 0,
+      "readme_prefix_preserved": true,
+      "readme_baseline_prefix_bytes": 3705,
+      "readme_baseline_prefix_sha256": "ed264e0750f778268f8eff8af4f72eab26b4772bb8753f2eec4d35abbe5bb448",
+      "readme_appended_bytes": 641,
+      "default_pytest_patterns_select_new_check": false,
+      "default_collection_proof": "filename-pattern static only; no pytest collection was executed"
+    },
+    "public_leak_scan": "no job/session/thread identifier, host path or private-stage receipt path appears in the four public files"
+  },
+  "runtime_boundaries": {
+    "summary": "No import-time process or network action. Fixtures are created only beneath the configured operator-owned root. The only in-scope process helper is Core git_status, which is synthetically mocked; no real Git launch occurs.",
+    "process": [
+      "Core git_status would run a git subprocess in production; the check mocks it and does not launch Git",
+      "CLI runtime_entry re-exec cannot activate because the public snapshot has no config/local-runtime.json, and WCF_USE_SYSTEM_PYTHON=1 is recommended",
+      "the static review runs one fixed-Python compile/AST/hash child; the execution stage runs the guarded suite with a scoped class-preserving process/network guard (zero attempts observed)"
+    ],
+    "network": [
+      "no connection or DNS action at import time or in the lifecycle scan path",
+      "no media, real webpage or remote service is retrieved"
+    ],
+    "filesystem": [
+      "fixture create/read/write/link/remove only beneath the configured test root, limited to the owned artifact-lifecycle-<uuid> child",
+      "public source roots are read-only",
+      "Core atomic_write_json writes manifest/checkpoint/plan/receipt files via temp file + fsync + os.replace outside the artifact root",
+      "Core apply_quarantine/restore_from_receipt use mkdir and os.replace only for eligible synthetic entries"
+    ]
+  },
+  "execution_results": {
+    "positive_run": {
+      "command": "python -m unittest discover -s checks -p lifecycle_synthetic.py -v (through the guarded runner)",
+      "suite_sha256": "312a979679460c6c7beb2fc0003f78823c3c250cb3c2dfd617c3a0711606b4b1",
+      "tests_run": 10,
+      "passed": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "first_failure": null,
+      "guard_attempts": 0,
+      "guard_class_identities_preserved": true,
+      "guard_attributes_restored": true,
+      "fixture_leftovers": 0
+    },
+    "mutant_run": {
+      "mutant": "Owner-confirmed byte-minimal _classification referenced-branch change in a private scratch copy only: the unique byte span b'    if referenced:\\n' was replaced with b'    if False and referenced:\\n'",
+      "byte_minimality": {
+        "positive_adapter_bytes": 26885,
+        "corrected_mutant_adapter_bytes": 26895,
+        "delta_bytes": 10,
+        "old_span_occurrences": 1,
+        "old_span_first_offset": 12839,
+        "old_span_length": 19,
+        "new_span_length": 29,
+        "mutant_equals_positive_replace_old_new_once": true,
+        "positive_CRLF_count": 0,
+        "corrected_mutant_CRLF_count": 0,
+        "positive_LF_count": 636,
+        "corrected_mutant_LF_count": 636,
+        "positive_adapter_sha256": "8228ab6b9321580a892928b410f252d816dc9680509f5e16d848b32e4ccc5a81",
+        "corrected_mutant_adapter_sha256": "d1ec69cb90d90cd61a0e2475b57ed1fa42370e57f99d73069909eaf9cdd51237",
+        "all_other_files_byte_identical": true
+      },
+      "public_positive_copy_mutated": false,
+      "suite_sha256": "312a979679460c6c7beb2fc0003f78823c3c250cb3c2dfd617c3a0711606b4b1",
+      "tests_run": 10,
+      "passed": 9,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "first_failure": "case 1 assertEqual(raw_snapshot[\"artifact_role\"], \"authoritative_input\") -> 'unknown' != 'authoritative_input'",
+      "gate_and_pin_note": "authoritative_reference_present is separately driven by referenced_by; the referenced artifact's pin remained true through the unknown-path fallback, so those assertions did not fail. The observed role assertion is the honest minimal failure.",
+      "guard_attempts": 0,
+      "guard_class_identities_preserved": true,
+      "guard_attributes_restored": true,
+      "fixture_leftovers": 0,
+      "evidence_note": "an earlier private text-mode whole-file newline rewrite was rejected as non-minimal and is not the evidence of record"
+    },
+    "execution_count": {
+      "total_synthetic_executions": 30,
+      "positive": 10,
+      "first_mutant": 10,
+      "corrected_mutant": 10,
+      "distinct_cases": 10,
+      "owner_independent_replay": "Owner reported 10/10 positive and 7 runtime controls passed"
+    },
+    "guard_scope_note": "in-process scoped guard, not an OS sandbox/all-access audit",
+    "no_real_git_or_network": true
+  },
+  "observed_negative_controls": [
+    {
+      "id": "owner-confirmed-classification-mutant",
+      "scope": "private scratch copy of the public WCF adapter only",
+      "file": "web_content_fetcher/artifact_lifecycle.py",
+      "one_line_change": "in _classification, replace the unique byte span b'    if referenced:\\n' with b'    if False and referenced:\\n'",
+      "byte_minimal": true,
+      "observed_failure": "case 1 authoritative-input role assertion: 'unknown' != 'authoritative_input'",
+      "unexpected_assertions_not_claimed": "the referenced artifact pin remained true through the unknown-path fallback and the separately propagated referenced_by kept the plan gate present",
+      "result": "same unmodified suite failed exactly the expected minimal assertion"
+    },
+    {
+      "id": "config-failure-control",
+      "change": "run with WCF_ARTIFACT_LIFECYCLE_CORE_TEST_ROOT unset",
+      "expected_result": "setUpClass RuntimeError; errors, never passes or skips",
+      "executed": false
+    }
+  ],
+  "not_verified": [
+    "no real Git integration, real disk measurement, reparse point, second volume or production cleanup/purge was exercised",
+    "the process/network guard is an in-process scoped guard, not an OS sandbox or all-access audit",
+    "missing private source bodies, if any, remain unknown",
+    "no customer/health data handling and no production-readiness claim",
+    "this synthetic pass does not prove real cleanup safety, customer-data handling, OS confinement or the full sanitized open-source goal"
+  ],
+  "license": {
+    "public_sources": "Apache-2.0; LICENSE, NOTICE and THIRD_PARTY_NOTICES.md are unchanged",
+    "added_fixtures": "generated text/bytes at run time; no third-party assets, media or private history"
+  }
+}
