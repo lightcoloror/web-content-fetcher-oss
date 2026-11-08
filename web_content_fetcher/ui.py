@@ -1100,6 +1100,10 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def main(argv: list[str] | None = None) -> int:
+    from .runtime_entry import maybe_reexec
+    runtime_exit = maybe_reexec('web_content_fetcher.ui', argv)
+    if runtime_exit is not None:
+        return runtime_exit
     config = load_config()
     parser = argparse.ArgumentParser(description="Run the Web Content Fetcher UI.")
     parser.add_argument("--host", default=web_ui_host(config))

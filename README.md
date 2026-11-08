@@ -2,6 +2,13 @@
 
 Web Content Fetcher extracts structured text and evidence metadata from web pages. It provides a Python library, a CLI and optional adapters for separately configured local tools.
 
+## Optional private native runtime
+
+The optional private native runtime is disabled by default and is not an
+installed-runtime readiness claim. Source-checkout operators supply their own
+actual validation material; see [docs/native-runtime.md](docs/native-runtime.md)
+before enabling it.
+
 ## Install
 
 ```sh

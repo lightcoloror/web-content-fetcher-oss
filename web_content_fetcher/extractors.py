@@ -8,6 +8,7 @@ from urllib.parse import urljoin, urlparse
 
 from .defuddle_backend import DefuddleRequest, defuddle_available, run_defuddle
 from .html_extract import Node, clean_text, extract_main_text, iter_nodes, parse_html, select_nodes
+from .extraction_runtime import ExtractionRuntimeError, ExtractionTimeoutError, RuntimeRefused
 
 
 EXTRACTOR_CHOICES = {"auto", "yuque", "trafilatura", "readability", "defuddle", "builtin"}
@@ -39,6 +40,8 @@ def extract_content(html: str, *, url: str = "", title: str = "", extractor: str
     for engine in engines:
         try:
             result = _run_engine(engine, html, url=url, title=title)
+        except (RuntimeRefused, PermissionError):
+            raise
         except Exception as exc:
             errors.append(f"{engine}:{type(exc).__name__}:{str(exc)[:200]}")
             continue
@@ -198,6 +201,25 @@ def _extract_site_specific(html: str, *, url: str, title: str) -> ExtractionResu
 
 
 def _extract_trafilatura(html: str, *, url: str, title: str) -> ExtractionResult:
+    from .extraction_runtime import route
+    try:
+        routed = route(html, url, title)
+        if routed is not None:
+            return ExtractionResult(**routed)
+    except RuntimeRefused:
+        raise
+    except (ExtractionRuntimeError, ExtractionTimeoutError) as exc:
+        reason = getattr(exc, 'reason', type(exc).__name__)
+        result = _extract_trafilatura_local(html, url=url, title=title)
+        result.metadata['extraction_runtime'] = {'route': 'local_fallback', 'reason': reason}
+        result.errors.append(f'extraction_runtime:{reason}')
+        return result
+    except Exception as exc:
+        raise RuntimeRefused(f'Unexpected extraction runtime error: {type(exc).__name__}') from exc
+    return _extract_trafilatura_local(html, url=url, title=title)
+
+
+def _extract_trafilatura_local(html: str, *, url: str, title: str) -> ExtractionResult:
     import trafilatura
 
     metadata: dict[str, Any] = {}

@@ -1,0 +1,12 @@
+{
+  "enabled": false,
+  "mode": "extraction",
+  "python": "C:/path/to/validated-venv/Scripts/python.exe",
+  "validation_receipt": "C:/path/to/validated-venv/validation.json",
+  "validation_sha256": "REPLACE_WITH_SHA256_OF_THE_RECEIPT_BYTES",
+  "process_supervisor": "C:/path/to/site-packages/web_content_fetcher/windows_job.py",
+  "attachment_model_directory": "C:/path/to/operator-owned/magika-model",
+  "attachments_enabled": false,
+  "timeout_seconds": 15,
+  "attachment_timeout_seconds": 15
+}

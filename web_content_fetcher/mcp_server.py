@@ -1417,6 +1417,10 @@ def handle(message: dict[str, Any]) -> dict[str, Any] | None:
 
 
 def main() -> int:
+    from .runtime_entry import maybe_reexec
+    runtime_exit = maybe_reexec('web_content_fetcher.mcp_server')
+    if runtime_exit is not None:
+        return runtime_exit
     while True:
         message = _read_message()
         if message is None:

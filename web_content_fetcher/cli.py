@@ -671,6 +671,10 @@ def _print_pipeline_rebuild_summary(data: dict) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
+    from .runtime_entry import maybe_reexec
+    runtime_exit = maybe_reexec('web_content_fetcher.cli', argv)
+    if runtime_exit is not None:
+        return runtime_exit
     configure_stdio()
     args = build_parser().parse_args(argv)
     if args.command == "body-store":
