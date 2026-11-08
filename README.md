@@ -17,3 +17,7 @@ For offline checks, install `python -m pip install ".[test]"` and run `python -m
 The first public source edition carries the library and supported offline fixtures. Local corpus fixtures, workspace wiring and historical operational records are maintained separately.
 
 Apache-2.0. See [LICENSE](LICENSE), [NOTICE](NOTICE), and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). The public edition adapts the original packaging and documentation and selects portable tests.
+
+## Windows source launcher
+
+See [the source-checkout launcher and synthetic contract checks](docs/windows-ui-launcher.md) for explicit Python selection, native exit-code propagation and caller environment restoration. Running the launcher starts the UI; the synthetic check uses a fake module and starts no service.
