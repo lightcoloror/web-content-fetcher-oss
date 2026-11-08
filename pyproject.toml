@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "web-content-fetcher"
-version = "0.1.0"
+version = "0.1.1"
 description = "Reusable compliant web content fetching, extraction, and evidence archiving layer."
 readme = "README.md"
 license = {file = "LICENSE"}
