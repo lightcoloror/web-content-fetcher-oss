@@ -32,3 +32,24 @@ does not clean an existing directory, install packages, elevate or change policy
 On a permission/policy refusal stop and keep the original error; do not change
 execution policy or try another host to bypass it. Old private machine configuration,
 real source lists, credentials, manuscripts and historical outputs are not included.
+
+## Command Prompt source-checkout launcher
+
+`scripts/start-web-ui.cmd` retains the `python -m web_content_fetcher.ui` source
+entry and passes its arguments through. Python must already be available on PATH;
+the wrapper does not install or choose a different provider. It uses pushd/popd
+and setlocal/endlocal to restore the caller's directory and environment, saving
+the Python exit code before popd can replace it. A missing Python is a failure.
+
+```text
+scripts\start-web-ui.cmd --host 127.0.0.1 --port 8780
+python tests/test_start_web_ui_cmd.py --output-root C:\path\to\NEW-cmd-synthetic-result
+```
+
+The explicit Python test is Windows-only and requires a new test-owned result
+path without batch metacharacters. It copies only the wrapper and creates a
+labelled fake UI package. Four cases cover native 0/7, a missing prior PYTHONPATH
+and missing Python, with cwd/environment restoration, space paths and argument
+forwarding. Output is retained. This does not test real UI/network behaviour,
+arbitrary shell quoting, every cmd version or privileged paths. No alternate host,
+security setting, install, browser or real data is involved.

@@ -21,3 +21,8 @@ Apache-2.0. See [LICENSE](LICENSE), [NOTICE](NOTICE), and [THIRD_PARTY_NOTICES.m
 ## Windows source launcher
 
 See [the source-checkout launcher and synthetic contract checks](docs/windows-ui-launcher.md) for explicit Python selection, native exit-code propagation and caller environment restoration. Running the launcher starts the UI; the synthetic check uses a fake module and starts no service.
+
+The Windows source-checkout cmd launcher also forwards UI arguments, restores
+the caller directory/environment and preserves the native Python exit code.
+See [Windows launcher contracts](docs/windows-ui-launcher.md); checks use
+synthetic modules and do not start the real UI.
