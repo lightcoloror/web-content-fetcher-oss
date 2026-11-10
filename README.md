@@ -75,3 +75,7 @@ python -m unittest discover -s checks -p lifecycle_synthetic.py -v
 ```
 
 See [docs/lifecycle-synthetic-tests.md](docs/lifecycle-synthetic-tests.md).
+
+## Explicit real-link smoke source
+
+See [optional operator wrapper and isolated aggregation controls](docs/real-link-smoke-source.md). Real links and authenticated content are not bundled or tested; the source-only boundaries and reporting limitations remain explicit.
