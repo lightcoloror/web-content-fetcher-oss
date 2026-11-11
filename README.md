@@ -75,3 +75,5 @@ python -m unittest discover -s checks -p lifecycle_synthetic.py -v
 ```
 
 See [docs/lifecycle-synthetic-tests.md](docs/lifecycle-synthetic-tests.md).
+
+See [docs/synthetic-routing-test.md](docs/synthetic-routing-test.md) for the isolated synthetic routing test guide.
