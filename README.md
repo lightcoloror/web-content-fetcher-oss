@@ -75,3 +75,7 @@ python -m unittest discover -s checks -p lifecycle_synthetic.py -v
 ```
 
 See [docs/lifecycle-synthetic-tests.md](docs/lifecycle-synthetic-tests.md).
+
+## Optional upstream regressions
+
+See [Selected upstream regressions](docs/selected-upstream-regressions.md) for the opt-in synthetic Trafilatura and MarkItDown tests and version requirements.
