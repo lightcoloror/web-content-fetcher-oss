@@ -1,0 +1,76 @@
+{
+  "links": [
+    {
+      "id": "synthetic-feishu-doc-001",
+      "url": "https://sample-mock-domain.feishu.cn/docx/doxcnSyntheticDocMockIdentifier001",
+      "expected_strategy": "feishu_lark",
+      "expected_route": "feishu_doc",
+      "minimum": true,
+      "login_required": false
+    },
+    {
+      "id": "synthetic-feishu-wiki-001",
+      "url": "https://sample-mock-domain.feishu.cn/wiki/wikcnSyntheticWikiMockIdentifier001",
+      "expected_strategy": "feishu_lark",
+      "expected_route": "feishu_wiki",
+      "minimum": true,
+      "login_required": false
+    },
+    {
+      "id": "synthetic-wechat-article-001",
+      "url": "https://mp.weixin.qq.com/s/synthetic_mock_article_token_999",
+      "expected_strategy": "wechat_mp",
+      "expected_route": "wechat_article",
+      "minimum": true,
+      "login_required": false
+    },
+    {
+      "id": "synthetic-yuque-doc-001",
+      "url": "https://www.yuque.com/synthetic-workspace/mock-repo/mock-doc-token-001",
+      "expected_strategy": "yuque",
+      "expected_route": "yuque_doc",
+      "minimum": true,
+      "login_required": false
+    },
+    {
+      "id": "synthetic-kdocs-doc-001",
+      "url": "https://www.kdocs.cn/l/clSyntheticKDocsToken001",
+      "expected_strategy": "kdocs",
+      "expected_route": "kdocs_doc",
+      "minimum": true,
+      "login_required": false
+    },
+    {
+      "id": "synthetic-xhs-note-001",
+      "url": "https://www.xiaohongshu.com/explore/synthetic_xhs_note_mock_001",
+      "expected_strategy": "xhs",
+      "expected_route": "xhs_note",
+      "minimum": true,
+      "login_required": false
+    },
+    {
+      "id": "synthetic-qq-doc-001",
+      "url": "https://docs.qq.com/doc/syntheticQqDocMockToken001",
+      "expected_strategy": "tencent_docs",
+      "expected_route": "qq_doc",
+      "minimum": true,
+      "login_required": false
+    },
+    {
+      "id": "synthetic-file-pdf-001",
+      "url": "https://static.example.com/assets/synthetic_document_mock.pdf",
+      "expected_strategy": "file",
+      "expected_route": "file",
+      "minimum": true,
+      "login_required": false
+    },
+    {
+      "id": "synthetic-generic-web-001",
+      "url": "https://example.com/blog/synthetic-generic-article-mock",
+      "expected_strategy": "generic",
+      "expected_route": "web_page",
+      "minimum": true,
+      "login_required": false
+    }
+  ]
+}
