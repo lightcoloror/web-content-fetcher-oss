@@ -77,3 +77,11 @@ python -m unittest discover -s checks -p lifecycle_synthetic.py -v
 See [docs/lifecycle-synthetic-tests.md](docs/lifecycle-synthetic-tests.md).
 
 See [docs/synthetic-routing-test.md](docs/synthetic-routing-test.md) for the isolated synthetic routing test guide.
+
+## Explicit real-link smoke source
+
+See [optional operator wrapper and isolated aggregation controls](docs/real-link-smoke-source.md). Real links and authenticated content are not bundled or tested; the source-only boundaries and reporting limitations remain explicit.
+
+## Optional upstream regressions
+
+See [Selected upstream regressions](docs/selected-upstream-regressions.md) for the opt-in synthetic Trafilatura and MarkItDown tests and version requirements.
